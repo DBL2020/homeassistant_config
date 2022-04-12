@@ -1,0 +1,65 @@
+alias: initial_ampere
+sequence:
+  - condition: state
+    entity_id: binary_sensor.keba_p30_plug
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.keba_p30_charging_state
+    state: 'off'
+  - condition: numeric_state
+    entity_id: sensor.pvueb
+    above: '2'
+  - choose:
+      - conditions:
+          - condition: numeric_state
+            entity_id: sensor.pvueb
+            above: '7'
+        sequence:
+          - service: keba.set_current
+            data:
+              current: 12
+      - conditions:
+          - condition: numeric_state
+            entity_id: sensor.pvueb
+            above: '6'
+        sequence:
+          - service: keba.set_current
+            data:
+              current: 10
+      - conditions:
+          - condition: numeric_state
+            entity_id: sensor.pvueb
+            above: '5'
+        sequence:
+          - service: keba.set_current
+            data:
+              current: 9
+      - conditions:
+          - condition: numeric_state
+            entity_id: sensor.pvueb
+            above: '4'
+        sequence:
+          - service: keba.set_current
+            data:
+              current: 8
+      - conditions:
+          - condition: numeric_state
+            entity_id: sensor.pvueb
+            above: '3'
+        sequence:
+          - service: keba.set_current
+            data:
+              current: 7
+      - conditions:
+          - condition: numeric_state
+            entity_id: sensor.pvueb
+            above: '2'
+        sequence:
+          - service: keba.set_current
+            data:
+              current: 6
+    default:
+      - service: keba.enable
+        data: {}
+mode: single
+icon: mdi:sun-wireless
