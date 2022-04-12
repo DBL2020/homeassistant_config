@@ -1,0 +1,27 @@
+alias: Sonne_tanken_ein
+description: ''
+trigger:
+  - platform: time_pattern
+    minutes: /10
+condition:
+  - condition: sun
+    before: sunset
+    after: sunrise
+  - condition: state
+    entity_id: binary_sensor.keba_p30_plug
+    state: 'on'
+action:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: binary_sensor.keba_p30_charging_state
+            state: 'off'
+        sequence:
+          - service: script.initial_ampere
+            data: {}
+      - conditions: []
+        sequence:
+          - service: script.change_ampere
+            data: {}
+    default: []
+mode: single
