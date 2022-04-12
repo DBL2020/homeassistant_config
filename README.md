@@ -12,6 +12,9 @@ I was looking for a simple way to maximize EV charging with unused PV power. I t
 - 14 A = 10 kW
 - 16 A = 11 kW
 
+![grafik](https://user-images.githubusercontent.com/31383506/163025797-a600b014-cbbf-4a87-b3d1-de6fa9169854.png)
+
+
 ### Prerequisites
 1. Integration PV smartmeter with PV power surplus, example Fronius smartmeter, variable pvueb showing kW unused (https://www.home-assistant.io/integrations/fronius/)
 2. Integration Wallbox: here keba P30, common model DE440 (https://www.home-assistant.io/integrations/keba/)
