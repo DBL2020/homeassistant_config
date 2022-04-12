@@ -1,5 +1,6 @@
 # HA_config
-homeassistant config repository
+homeassistant config repository.
+Just some use cases...
 
 ## simple automation to optimize EV charging with Photovoltaics power (PV Überschussladen)
 I was looking for a simple way to maximize EV charging with unused PV power. I tried some dedicated software, but finally a very simple homeassistant automation does it well.
