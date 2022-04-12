@@ -1,0 +1,10 @@
+# Power real:
+# positiv : Bezug vom Netz
+# negativ : Einspeisung
+  - platform: template
+      pvueb:
+        friendly_name: 'PV Ueberschuss'
+        value_template: >-
+          {% set  pv_ueb=states ("sensor.power_real_fronius_meter") | default (0) | float | multiply (0.001) | round (0) | int  %} 
+          {% set pv_ueb = pv_ueb * (-1)  %}
+          {{ pv_ueb }}
