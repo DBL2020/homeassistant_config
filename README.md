@@ -20,12 +20,12 @@ I was looking for a simple way to maximize EV charging with unused PV power. I t
 2. Integration Wallbox: here keba P30, common model DE440 (https://www.home-assistant.io/integrations/keba/)
 
 ### Configuration
-pvueb: current kWh power surplus (negativ means getting power from grid).
+__pvueb__: current kWh power surplus (negativ means getting power from grid).
 
 ### Automation
-- sonne_tanken_ein: 
+- __sonne_tanken_ein__: 
 When enabled, the automation is scheduled for every 10 minutes to either enable wallbox and set initial ampere setting (initial_ampere) or to change ampere setting when already in charging mode (change_ampere). Only starts if sun is above horizon of course.
 
 ### scripts
-- intial_ampere: if not charging, sets the initial ampere setting and enables wallbox
-- change_ampere: if charging, changes ampere setting or disables charging depending on PV power surplus
+- __intial_ampere__: if not charging, sets the initial ampere setting and enables wallbox
+- __change_ampere__: if charging, changes ampere setting or disables charging depending on PV power surplus
