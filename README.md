@@ -16,7 +16,7 @@ I was looking for a simple way to maximize EV charging with unused PV power. I t
 2. Integration Wallbox: here keba P30, common model DE440 (https://www.home-assistant.io/integrations/keba/)
 
 ### Configuration
-
+pvueb: current kWh power surplus (negativ means getting power from grid).
 
 ### Automation
 - sonne_tanken_ein: 
