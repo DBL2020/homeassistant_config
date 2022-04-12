@@ -1,4 +1,4 @@
-# HA_config
+# homeassistant_config
 homeassistant config repository.
 Just some use cases...
 
