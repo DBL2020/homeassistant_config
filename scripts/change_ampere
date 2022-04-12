@@ -1,0 +1,36 @@
+alias: change_ampere
+sequence:
+  - condition: state
+    entity_id: binary_sensor.keba_p30_charging_state
+    attribute: status
+    state: charging
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: >-
+              {{ ((states ('sensor.keba_p30_max_current') | float ) + (states
+              ('sensor.pvueb')|float))<6  }}
+        sequence:
+          - service: keba.disable
+            data: {}
+      - conditions:
+          - condition: template
+            value_template: >-
+              {{ ((states ('sensor.keba_p30_max_current') | float ) + (states
+              ('sensor.pvueb')|float))>12  }}
+        sequence:
+          - service: keba.set_current
+            data:
+              current: 12
+    default:
+      - service: keba.set_current
+        data_template:
+          current: >-
+            {{ ((states ('sensor.keba_p30_max_current') | float ) + (states
+            ('sensor.pvueb')|float)) }}
+mode: restart
+icon: mdi:sun-wireless-outline
