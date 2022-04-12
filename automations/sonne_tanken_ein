@@ -1,5 +1,5 @@
 alias: Sonne_tanken_ein
-description: ''
+description: 'Check every 10 minutes for PV power not consumed to charge car plugged to keba wallbox'
 trigger:
   - platform: time_pattern
     minutes: /10
